@@ -37,10 +37,20 @@ function mapZeros(arr){
   }
 
   for(let i = 0; i < output.length; i++){
+    console.log('////////////////');
     if(map.columns[i]){
-      for(let z = 0; z < output[i].length; z++){
-        output[i][z] = 0;
-      }
+      console.log('column', i, 'is mapped');
+      output[i].forEach(item => {
+        console.log(item);
+        item = 0;
+        console.log(item);
+      });
+      // THIS WORKS
+      // console.log('column', i, 'is mapped');
+      // for(let z = 0; z < output[i].length; z++){
+      //   output[i][z] = 0;
+      // }
+      console.log(output[i]);
     }
     else{
       for(let j = 0; j < output[i].length; j++){
@@ -50,6 +60,9 @@ function mapZeros(arr){
       }
     }
   }
+  // output[0].forEach(item => {
+  //   return item = 0;
+  // });
   output[3][2] = 0;
   console.log('map:', map);
   console.log('output:', output);
