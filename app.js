@@ -11,7 +11,7 @@ function populate(arr, rows, columns){
 }
 
 populate(arr,5,5);
-console.log(arr);
+//console.log(arr);
 
 function mapZeros(arr){
   let i = 0;
@@ -37,20 +37,20 @@ function mapZeros(arr){
   }
 
   for(let i = 0; i < output.length; i++){
-    console.log('////////////////');
+   // console.log('////////////////');
     if(map.columns[i]){
-      console.log('column', i, 'is mapped');
+     // console.log('column', i, 'is mapped');
       output[i].forEach(item => {
-        console.log(item);
+       // console.log(item);
         item = 0;
-        console.log(item);
+        //console.log(item);
       });
       // THIS WORKS
       // console.log('column', i, 'is mapped');
       // for(let z = 0; z < output[i].length; z++){
       //   output[i][z] = 0;
       // }
-      console.log(output[i]);
+     // console.log(output[i]);
     }
     else{
       for(let j = 0; j < output[i].length; j++){
@@ -64,8 +64,104 @@ function mapZeros(arr){
   //   return item = 0;
   // });
   output[3][2] = 0;
-  console.log('map:', map);
-  console.log('output:', output);
+  // console.log('map:', map);
+  // console.log('output:', output);
 }
 
 mapZeros(arr);
+
+
+//Question 2
+//You are given an array containing positive and negative integers. Write an algorithm which will find the largest sum in a continuous sequence.
+
+const sumArr = [-1, 2, 5, -5, 0, -4, 9, -1, -2, 11];
+
+const findMaxSum = (arr) => {
+  let maxTotal = 0;
+  let experimentalTotal = 0;
+
+  for(let i = 0; i < arr.length; i++){
+    experimentalTotal = Math.max(experimentalTotal + arr[i], 0);
+    maxTotal = Math.max(maxTotal, experimentalTotal);
+  }
+
+  return maxTotal;
+};
+
+console.log(findMaxSum(sumArr));
+
+
+
+class LinkedList {
+  constructor() {
+    this.length = 0;
+    this.head = null;
+  }
+   
+  insert(value, index) {
+    if (index > this.length || index < 0) {
+      throw new RangeError('Index out of range');
+    }
+       
+    const newNode = {
+      value
+    };
+       
+    if (index === 0) {
+      newNode.next = this.head;
+      this.head = newNode;
+    } else {
+      const prevNode = this._find(index - 1);
+      newNode.next = prevNode.next;
+      prevNode.next = newNode;
+    }
+
+    this.length++;
+  }
+   
+  getValue(index) {
+    try{
+      return this._find(index).value;
+    }
+    catch(e) {
+      return;
+    }
+  }
+
+  remove(index) {
+    if (index === 0) {
+      this.head = this.head.next;
+    }
+    this._find(index - 1).next = this._find(index + 1);
+    this.length--;
+  }
+   
+  _find(index) {
+    let node = this.head;
+    for (let i = 0; i < index; i++) {
+      node = node.next;
+    }
+    return node;
+  }
+}
+
+const LL = new LinkedList();
+
+LL.insert(1, 0);
+LL.insert(2, 1);
+LL.insert(15, 2);
+LL.insert(4, 3);
+LL.insert(5, 4);
+LL.insert(6, 5);
+LL.insert(7, 6);
+LL.insert(8, 7);
+LL.insert(19, 8);
+LL.insert(10, 9);
+LL.insert(11, 10);
+LL.insert(17, 11);
+LL.insert(13, 12);
+console.log(LL);
+//Question 3
+//Write an algorithm which will sum two numbers stored in linked lists, where each node contains a single digit of the number.
+
+
