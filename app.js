@@ -68,7 +68,7 @@ function mapZeros(arr){
   // console.log('output:', output);
 }
 
-mapZeros(arr);
+// mapZeros(arr);
 
 
 //Question 2
@@ -88,7 +88,7 @@ const findMaxSum = (arr) => {
   return maxTotal;
 };
 
-console.log(findMaxSum(sumArr));
+// console.log(findMaxSum(sumArr));
 
 
 
@@ -145,23 +145,28 @@ class LinkedList {
   }
 }
 
-const LL = new LinkedList();
-
-LL.insert(1, 0);
-LL.insert(2, 1);
-LL.insert(15, 2);
-LL.insert(4, 3);
-LL.insert(5, 4);
-LL.insert(6, 5);
-LL.insert(7, 6);
-LL.insert(8, 7);
-LL.insert(19, 8);
-LL.insert(10, 9);
-LL.insert(11, 10);
-LL.insert(17, 11);
-LL.insert(13, 12);
-console.log(LL);
+const fifteen = new LinkedList();
+fifteen.insert(5,0);
+fifteen.insert(1,1);
+const thirtyfive = new LinkedList();
+thirtyfive.insert(5,0);
+thirtyfive.insert(3,1);
+const sumList = new LinkedList();
 //Question 3
-//Write an algorithm which will sum two numbers stored in linked lists, where each node contains a single digit of the number.
+// //Write an algorithm which will sum two numbers stored in linked lists, where each node contains a single digit of the number.
+// function sumLinkedLists(LA, LB){
+//   nA = LA.head;
+//   nB = LB.head;
+//   sumLL(nA,nB);
+// }
+// function sumLL(nA,nB,rem=0){
+//   if(!nA && !nB){
+//     return rem;
+//   }
+//   else if(!nA){
+
+//   }
+// }
 
 
+// sumLL(fifteen, thirtyfive);
